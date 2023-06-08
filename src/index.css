@@ -2,12 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-[data-theme="light"] .btn-primary,
-[data-theme="light"] .btn-secondary,
-[data-theme="light"] .btn-neutral {
-  --pc: 0 0% 100%;
-}
-
-* {
-  @apply transition-[background-color];
+.btn-primary,
+.btn-secondary,
+.btn-neutral {
+  @apply text-white;
 }
