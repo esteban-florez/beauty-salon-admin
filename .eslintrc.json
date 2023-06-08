@@ -12,6 +12,7 @@
   "rules": {
     "react-refresh/only-export-components": "warn",
     "semi": ["error", "never"],
-    "comma-dangle": ["error", "multiline-only"]
+    "comma-dangle": ["error", "only-multiline"],
+    "jsx-quotes": ["error", "prefer-double"]
   }
 }
