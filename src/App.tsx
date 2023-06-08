@@ -28,14 +28,13 @@ export default function App(): React.ReactElement {
     return () => subscription.unsubscribe()
   }, [])
 
-  const hasSession = Boolean(session)
-  const title = hasSession ? 'Lista de reseñas' : 'Iniciar sesión'
+  const title = session !== null ? 'Lista de reseñas' : 'Iniciar sesión'
 
   return (
     <>
       <Header session={session} />
       <Main title={title}>
-        {hasSession
+        {session !== null
           ? <ReviewList />
           : (
             <div className="card card-body mx-auto mt-5 max-w-lg bg-white shadow-md">

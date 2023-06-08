@@ -1,58 +1,26 @@
 import { useState, useEffect } from 'react'
 import Loading from './Loading'
 import Review from './Review'
+import { supabase } from '../utils/supabase'
 import { ReviewInterface } from '../types'
-
-const exampleReviews = [
-  {
-    id: 1,
-    name: 'Esteban Florez',
-    email: 'email@example.com',
-    phone: '0412-1231231',
-    review: '¡Epale menorkis todo bien!',
-    created_at: new Date(),
-  },
-  {
-    id: 2,
-    name: 'Esteban Florez',
-    email: 'email@example.com',
-    phone: '0412-1231231',
-    review: '¡Epale menorkis todo bien!',
-    created_at: new Date(),
-  },
-  {
-    id: 3,
-    name: 'Esteban Florez',
-    email: 'email@example.com',
-    phone: '0412-1231231',
-    review: '¡Epale menorkis todo bien!',
-    created_at: new Date(),
-  },
-  {
-    id: 4,
-    name: 'Esteban Florez',
-    email: 'email@example.com',
-    phone: '0412-1231231',
-    review: '¡Epale menorkis todo bien!',
-    created_at: new Date(),
-  },
-  {
-    id: 5,
-    name: 'Esteban Florez',
-    email: 'email@example.com',
-    phone: '0412-1231231',
-    review: '¡Epale menorkis todo bien!',
-    created_at: new Date(),
-  },
-]
 
 export default function ReviewList(): React.ReactElement {
   const [reviews, setReviews] = useState<ReviewInterface[]>([])
 
   useEffect(() => {
-    setTimeout(() => {
-      setReviews(exampleReviews)
-    }, 1000)
+    async function fetchReviews(): Promise<void> {
+      const { data, error } = await supabase.from('reviews').select()
+
+      if (error !== null) {
+        console.log(error)
+      }
+
+      if (data !== null) {
+        setReviews(data)
+      }
+    }
+
+    void fetchReviews()
   }, [])
 
   return (
