@@ -1,27 +1,26 @@
 import { BuildingStorefrontIcon, UserCircleIcon, SunIcon, MoonIcon } from '@heroicons/react/24/solid'
-import type { BaseSyntheticEvent } from 'react'
 
-export default function Header() {
-  function swapTheme(event: BaseSyntheticEvent) {
-    const isDark = event.target.checked
+export default function Header (): React.ReactElement {
+  function swapTheme (event: React.BaseSyntheticEvent): void {
+    const input = event.target as HTMLInputElement
 
-    document.documentElement.dataset.theme = isDark 
+    document.documentElement.dataset.theme = input.checked
       ? 'light'
       : 'dark'
   }
 
   return (
-    <header className="flex items-center justify-between bg-base-300 px-10 py-4 shadow-md">
+    <header className="flex items-center justify-between bg-neutral px-10 py-4 text-neutral-content shadow">
       <div className="flex items-center gap-1">
         <BuildingStorefrontIcon className="h-6 w-6" />
-        <h1 className="text-2xl font-bold">
+        <p className="text-2xl font-bold tracking-tight">
           Peluquería "Jeanelly Adames"
-        </h1>
+        </p>
       </div>
       <div className="flex items-center gap-4">
         {/* eslint-disable-next-line tailwindcss/classnames-order */}
         <label className="swap swap-rotate btn-square btn-sm btn btn-neutral">
-          <input type="checkbox" onInput={swapTheme}/>
+          <input type="checkbox" onInput={swapTheme} />
           <SunIcon className="swap-off h-5 w-5" />
           <MoonIcon className="swap-on h-5 w-5" />
         </label>
