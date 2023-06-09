@@ -45,7 +45,6 @@ export default function App(): React.ReactElement {
 
       if (data !== null) {
         setReviews(data)
-        setSelectedReviewId(12)
       }
     }
 

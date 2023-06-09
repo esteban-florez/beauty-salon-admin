@@ -21,11 +21,8 @@ export default function Review({ review, viewDetails }: Props): React.ReactEleme
         <p className="font-bold text-gray-500">
           {formatDate(createdAt)}
         </p>
-        <button className="btn-info btn-sm btn me-2" onClick={() => viewDetails(id)}>
+        <button className="btn-primary btn-sm btn mt-4" onClick={() => viewDetails(id)}>
           Detalles
-        </button>
-        <button className="btn-error btn-sm btn mt-4">
-          Eliminar
         </button>
       </div>
 

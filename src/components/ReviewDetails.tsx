@@ -31,7 +31,7 @@ function render({ review, closeDetails }: Props, dialogRef: React.ForwardedRef<H
         <p className="font-semibold text-gray-600">
           {formatDate(createdAt)}
         </p>
-        <button className="btn-accent btn mt-4" onClick={closeDetails}>Salir</button>
+        <button className="btn-neutral btn mt-4" onClick={closeDetails}>Salir</button>
       </div>
     </dialog>
   )
