@@ -6,13 +6,7 @@ export type Json =
   | { [key: string]: Json }
   | Json[]
 
-export interface ReviewInterface {
-  created_at: string | null
-  email: string | null
-  id: number
-  name: string
-  review: string
-}
+export type ReviewType = Database['public']['Tables']['reviews']['Row']
 
 export interface Database {
   public: {

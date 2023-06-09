@@ -1,7 +1,7 @@
-import { ReviewInterface } from '../types'
+import { ReviewType } from '../types'
 
 export default function Review(
-  { review }: { review: ReviewInterface }
+  { review }: { review: ReviewType }
 ): React.ReactElement {
   const { id, name, email, review: description } = review
 
