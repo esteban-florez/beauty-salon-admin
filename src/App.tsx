@@ -32,11 +32,14 @@ export default function App(): React.ReactElement {
   }, [selectedReviewId])
 
   useEffect(() => {
+    if (session === null) return
     let ignore = false
     if (ignore) return
 
     async function fetchReviews(): Promise<void> {
       const { data, error } = await supabase.from('reviews').select()
+
+      console.log(data)
 
       if (error !== null) {
         console.log(error)
@@ -53,7 +56,7 @@ export default function App(): React.ReactElement {
     return () => {
       ignore = true
     }
-  }, [])
+  }, [session])
 
   return (
     <>
